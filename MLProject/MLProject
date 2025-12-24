@@ -1,0 +1,24 @@
+name: heart-disease-mlflow-ci
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      dataset:
+        type: string
+        default: "heartdisease_preprocessing.csv"
+
+      C:
+        type: float
+        default: 1.0
+
+      max_iter:
+        type: int
+        default: 1000
+
+    command: >
+      python modelling.py
+      --dataset {dataset}
+      --C {C}
+      --max_iter {max_iter}
